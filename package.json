@@ -1,6 +1,6 @@
 {
   "name": "@kkapoor/next-jose-auth",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -19,7 +19,7 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^22.19.1",
+    "@types/node": "^22.19.2",
     "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
@@ -28,7 +28,7 @@
     "@kkapoor/utils": "^4.1.0",
     "jose": "^5.10.0",
     "nanoid": "^5.1.6",
-    "next": "^16.0.6",
+    "next": "^16.0.8",
     "server-only": "^0.0.1"
   }
 }
