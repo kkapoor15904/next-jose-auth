@@ -13,7 +13,6 @@
   },
   "keywords": [],
   "author": "Krishna Kapoor",
-  "packageManager": "bun",
   "publishConfig": {
     "access": "public"
   },
