@@ -1,6 +1,6 @@
 {
   "name": "@kkapoor/next-jose-auth",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "Krishna Kapoor",
-  "packageManager": "pnpm",
+  "packageManager": "bun",
   "publishConfig": {
     "access": "public"
   },
@@ -28,7 +28,6 @@
     "@kkapoor/utils": "^5.0.1",
     "jose": "^5.10.0",
     "nanoid": "^5.1.6",
-    "next": "^16.1.6",
-    "server-only": "^0.0.1"
+    "next": "^16.1.6"
   }
 }
