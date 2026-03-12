@@ -160,8 +160,18 @@ class NextJoseAuthClient<TPayload extends Record<string, any>> {
     request: NextRequest,
     response: NextResponse,
   ) {
+    const currentPath = request.nextUrl.pathname;
+
+    const safeRedirect = (target: string) => {
+      const url = new URL(target, request.url);
+
+      if (url.pathname === currentPath) return response;
+
+      return NextResponse.redirect(url);
+    };
+
     const checkRoute = (route: string): boolean =>
-      request.nextUrl.pathname.startsWith(route);
+      currentPath.startsWith(route);
 
     const isProtectedRoute = this.protectedRoutes.some(checkRoute);
     const isPublicRoute = this.publicRoutes.some(checkRoute);
@@ -174,8 +184,7 @@ class NextJoseAuthClient<TPayload extends Record<string, any>> {
     );
 
     if (!atError) {
-      if (isPublicRoute)
-        return NextResponse.redirect(new URL(this.redirects.auth, request.url));
+      if (isPublicRoute) return safeRedirect(this.redirects.auth);
 
       return response;
     }
@@ -188,10 +197,7 @@ class NextJoseAuthClient<TPayload extends Record<string, any>> {
     );
 
     if (rtError) {
-      if (isProtectedRoute)
-        return NextResponse.redirect(
-          new URL(this.redirects.noAuth, request.url),
-        );
+      if (isProtectedRoute) return safeRedirect(this.redirects.noAuth);
 
       return response;
     }
